@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftlyui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftlyWorkspace/SwiftlyUI.git",
+      "state" : {
+        "branch" : "enhance/colored-dropdown-text",
+        "revision" : "315bcc549e38db0258736422d48e5209ed03c0e0"
+      }
+    }
+  ],
+  "version" : 2
+}
