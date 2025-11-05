@@ -15,10 +15,6 @@ struct TokenTagFieldDemo: View {
             VStack(spacing: 32) {
                 // Header
                 VStack(spacing: 8) {
-                    Text("Token Tag Field")
-                        .font(.largeTitle)
-                        .bold()
-
                     Text("A powerful tag input component with auto-completion, inline editing, and customizable styling.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
