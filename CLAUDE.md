@@ -13,6 +13,8 @@ SwiftlyUI-DemoApp is a comprehensive demonstration application showcasing all Sw
 - **Run the app**: `swift run SwiftlyUI-DemoApp`
 - **Clean build**: `swift package clean`
 
+**Note**: Package.swift should never be included in Xcode's Sources build phase. If you see "No such module 'PackageDescription'" errors during Xcode builds, check that Package.swift is not in the "Compile Sources" build phase in Xcode.
+
 ### Xcode Development
 The app can also be opened and run through Xcode:
 1. Open `SwiftlyUI-DemoApp.xcodeproj` in Xcode
