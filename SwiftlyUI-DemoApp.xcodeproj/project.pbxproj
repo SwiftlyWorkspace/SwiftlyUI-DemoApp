@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		D0A298EE2EBB7F2E0073B4C4 /* SwiftlyUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0A298ED2EBB7F2E0073B4C4 /* SwiftlyUI */; };
+		D0A299142EBC04E80073B4C4 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A299122EBC04E80073B4C4 /* Package.swift */; };
+		D0A299152EBC04E80073B4C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D0A299132EBC04E80073B4C4 /* README.md */; };
+		D0A299162EBC04E80073B4C4 /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = D0A299112EBC04E80073B4C4 /* Package.resolved */; };
+		D0A299172EBC04E80073B4C4 /* CLAUDE.md in Resources */ = {isa = PBXBuildFile; fileRef = D0A299102EBC04E80073B4C4 /* CLAUDE.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D0A298D72EBB722C0073B4C4 /* SwiftlyUI-DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftlyUI-DemoApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A299102EBC04E80073B4C4 /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = "<group>"; };
+		D0A299112EBC04E80073B4C4 /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
+		D0A299122EBC04E80073B4C4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		D0A299132EBC04E80073B4C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +46,10 @@
 			isa = PBXGroup;
 			children = (
 				D0A298D92EBB722C0073B4C4 /* SwiftlyUI-DemoApp */,
+				D0A299102EBC04E80073B4C4 /* CLAUDE.md */,
+				D0A299112EBC04E80073B4C4 /* Package.resolved */,
+				D0A299122EBC04E80073B4C4 /* Package.swift */,
+				D0A299132EBC04E80073B4C4 /* README.md */,
 				D0A298D82EBB722C0073B4C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +130,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A299152EBC04E80073B4C4 /* README.md in Resources */,
+				D0A299162EBC04E80073B4C4 /* Package.resolved in Resources */,
+				D0A299172EBC04E80073B4C4 /* CLAUDE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A299142EBC04E80073B4C4 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +383,7 @@
 			repositoryURL = "https://github.com/SwiftlyWorkspace/SwiftlyUI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = "0.0.1";
+				minimumVersion = 0.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
