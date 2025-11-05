@@ -44,6 +44,7 @@ struct TokenTagFieldDemo: View {
                 // Features Overview
                 FeaturesOverview()
             }
+            .padding(.bottom, 32)
         }
         .navigationTitle("Token Tag Field")
     }
@@ -209,7 +210,7 @@ private struct FeaturesOverview: View {
             LazyVGrid(columns: [
                 GridItem(.flexible()),
                 GridItem(.flexible())
-            ], spacing: 16) {
+            ], alignment: .leading, spacing: 16) {
                 ForEach(features.indices, id: \.self) { index in
                     let feature = features[index]
                     FeatureCard(
@@ -246,7 +247,11 @@ private struct FeatureCard: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .lineLimit(3)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Spacer(minLength: 0)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding()
         .background(Color.secondary.opacity(0.05))
         .cornerRadius(12)
