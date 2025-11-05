@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", from: "1.0.0"),
+        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", from: "0.0.1"),
     ],
     targets: [
         .executableTarget(

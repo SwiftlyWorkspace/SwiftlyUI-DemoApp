@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D0A298EE2EBB7F2E0073B4C4 /* SwiftlyUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0A298ED2EBB7F2E0073B4C4 /* SwiftlyUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D0A298D72EBB722C0073B4C4 /* SwiftlyUI-DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftlyUI-DemoApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A298EE2EBB7F2E0073B4C4 /* SwiftlyUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = "SwiftlyUI-DemoApp";
 			packageProductDependencies = (
+				D0A298ED2EBB7F2E0073B4C4 /* SwiftlyUI */,
 			);
 			productName = "SwiftlyUI-DemoApp";
 			productReference = D0A298D72EBB722C0073B4C4 /* SwiftlyUI-DemoApp.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = D0A298CE2EBB722C0073B4C4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D0A298EC2EBB7F2E0073B4C4 /* XCRemoteSwiftPackageReference "SwiftlyUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D0A298D82EBB722C0073B4C4 /* Products */;
 			projectDirPath = "";
@@ -351,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0A298EC2EBB7F2E0073B4C4 /* XCRemoteSwiftPackageReference "SwiftlyUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftlyWorkspace/SwiftlyUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "0.0.1";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0A298ED2EBB7F2E0073B4C4 /* SwiftlyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A298EC2EBB7F2E0073B4C4 /* XCRemoteSwiftPackageReference "SwiftlyUI" */;
+			productName = SwiftlyUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0A298CF2EBB722C0073B4C4 /* Project object */;
 }

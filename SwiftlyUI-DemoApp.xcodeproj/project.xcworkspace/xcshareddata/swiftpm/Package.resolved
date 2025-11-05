@@ -1,4 +1,5 @@
 {
+  "originHash" : "1856da42e15f32291fb0a292a722f5a342fed098e46cf1d446bf131680c68da9",
   "pins" : [
     {
       "identity" : "swiftlyui",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
