@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D0A298EE2EBB7F2E0073B4C4 /* SwiftlyUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0A298ED2EBB7F2E0073B4C4 /* SwiftlyUI */; };
-		D0A299142EBC04E80073B4C4 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A299122EBC04E80073B4C4 /* Package.swift */; };
 		D0A299152EBC04E80073B4C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D0A299132EBC04E80073B4C4 /* README.md */; };
 		D0A299162EBC04E80073B4C4 /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = D0A299112EBC04E80073B4C4 /* Package.resolved */; };
 		D0A299172EBC04E80073B4C4 /* CLAUDE.md in Resources */ = {isa = PBXBuildFile; fileRef = D0A299102EBC04E80073B4C4 /* CLAUDE.md */; };
@@ -45,11 +44,11 @@
 		D0A298CE2EBB722C0073B4C4 = {
 			isa = PBXGroup;
 			children = (
+				D0A299132EBC04E80073B4C4 /* README.md */,
+				D0A299122EBC04E80073B4C4 /* Package.swift */,
 				D0A298D92EBB722C0073B4C4 /* SwiftlyUI-DemoApp */,
 				D0A299102EBC04E80073B4C4 /* CLAUDE.md */,
 				D0A299112EBC04E80073B4C4 /* Package.resolved */,
-				D0A299122EBC04E80073B4C4 /* Package.swift */,
-				D0A299132EBC04E80073B4C4 /* README.md */,
 				D0A298D82EBB722C0073B4C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,7 +142,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0A299142EBC04E80073B4C4 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

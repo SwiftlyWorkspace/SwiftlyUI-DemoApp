@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", from: "0.0.1"),
+        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", branch: "enhance/colored-dropdown-text"),
     ],
     targets: [
         .executableTarget(

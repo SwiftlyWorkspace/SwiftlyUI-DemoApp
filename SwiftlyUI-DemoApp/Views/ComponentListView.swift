@@ -17,6 +17,12 @@ struct ComponentListView: View {
             description: "A customizable token-based input field for managing tags with auto-completion and inline editing.",
             systemImage: "tag.fill",
             destination: .tokenTagField
+        ),
+        Component(
+            name: "User Token Field",
+            description: "A search-based user selection component with avatar display and auto-completion.",
+            systemImage: "person.2.fill",
+            destination: .userTokenField
         )
     ]
 
@@ -36,6 +42,8 @@ struct ComponentListView: View {
                 switch selectedComponent {
                 case .tokenTagField:
                     TokenTagFieldDemo()
+                case .userTokenField:
+                    UserTokenFieldDemo()
                 }
             } else {
                 if #available(macOS 14.0, iOS 17.0, *) {
@@ -110,6 +118,7 @@ struct Component: Identifiable {
 /// Enum representing the different component demo destinations.
 enum ComponentDestination: Hashable {
     case tokenTagField
+    case userTokenField
 }
 
 #Preview {
