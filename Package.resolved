@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftlyui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftlyWorkspace/SwiftlyUI.git",
+      "state" : {
+        "revision" : "3851d85a8ea6f8edda1afb1df04210fb5aaecd6b",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
