@@ -5,7 +5,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftlyWorkspace/SwiftlyUI.git",
       "state" : {
-        "revision" : "0b98b9057aac6a38029c1cd12a328b1ccd3e4363"
+        "revision" : "541f19aedeb785ec75343ae95d2c8ce4716065b5"
       }
     }
   ],

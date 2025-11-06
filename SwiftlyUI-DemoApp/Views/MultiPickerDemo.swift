@@ -160,6 +160,7 @@ struct SearchableMultiPickerExamples: View {
                     showSelectAll: true,
                     showClearAll: true
                 )
+                .multiPickerStyle(.sheet)
 
                 if !selection.isEmpty {
                     Text("Selected: \(selection.sorted().joined(separator: ", "))")
