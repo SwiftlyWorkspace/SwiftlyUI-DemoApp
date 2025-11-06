@@ -48,7 +48,7 @@ struct UserTokenFieldDemo: View {
                 }
 
                 // Features Overview
-                FeaturesOverview()
+                UserTokenFieldFeaturesOverview()
             }
             .padding(.bottom, 32)
         }
@@ -376,7 +376,7 @@ private struct CustomUserTypeExample: View {
 }
 
 /// Features overview grid.
-private struct FeaturesOverview: View {
+private struct UserTokenFieldFeaturesOverview: View {
     let features = [
         Feature(icon: "magnifyingglass", title: "Search by Name/Email", description: "Intelligent filtering as you type"),
         Feature(icon: "person.crop.circle", title: "Avatar Display", description: "Images, URLs, or auto-generated initials"),

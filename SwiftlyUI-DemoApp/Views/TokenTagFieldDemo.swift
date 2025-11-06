@@ -38,7 +38,7 @@ struct TokenTagFieldDemo: View {
                 }
 
                 // Features Overview
-                FeaturesOverview()
+                TokenTagFieldFeaturesOverview()
             }
             .padding(.bottom, 32)
         }
@@ -186,7 +186,7 @@ private struct SuggestionsTagFieldExample: View {
 }
 
 /// Features overview section.
-private struct FeaturesOverview: View {
+private struct TokenTagFieldFeaturesOverview: View {
     private let features = [
         ("tag.fill", "Tag Management", "Add, edit, and remove tags with intuitive controls"),
         ("textformat", "Inline Editing", "Double-tap any tag to edit its name inline"),
