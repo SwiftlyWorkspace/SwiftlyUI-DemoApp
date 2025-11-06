@@ -3,44 +3,26 @@ import SwiftlyUI
 
 struct MultiPickerDemo: View {
     var body: some View {
-        List {
-            Section {
-                NavigationLink("Basic Examples") {
-                    BasicMultiPickerExamples()
+        ScrollView {
+            VStack(spacing: 32) {
+                // Header
+                VStack(spacing: 8) {
+                    Text("MultiPicker")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("A flexible multi-selection picker component with search, sections, and multiple presentation styles.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
                 }
+                .padding(.horizontal)
+                .padding(.top)
 
-                NavigationLink("Searchable Examples") {
-                    SearchableMultiPickerExamples()
-                }
-
-                NavigationLink("Grouped Examples") {
-                    GroupedMultiPickerExamples()
-                }
-
-                NavigationLink("Style Variations") {
-                    StyleVariationsExamples()
-                }
-
-                NavigationLink("Selection Limits") {
-                    SelectionLimitsExamples()
-                }
-
-                NavigationLink("Bulk Actions") {
-                    BulkActionsExamples()
-                }
-            } header: {
-                Text("Examples")
+                // Features Overview
+                MultiPickerFeaturesOverview()
             }
-
-            Section {
-                NavigationLink("Features Overview") {
-                    MultiPickerFeaturesOverview()
-                }
-            } header: {
-                Text("About")
-            }
+            .padding(.bottom, 32)
         }
-        .navigationTitle("MultiPicker")
     }
 }
 
