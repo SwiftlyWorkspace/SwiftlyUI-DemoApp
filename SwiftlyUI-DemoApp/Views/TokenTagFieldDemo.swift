@@ -15,34 +15,22 @@ struct TokenTagFieldDemo: View {
             VStack(spacing: 32) {
                 // Header
                 VStack(spacing: 8) {
+                    Text("Token Tag Field")
+                        .font(.title)
+                        .fontWeight(.bold)
                     Text("A powerful tag input component with auto-completion, inline editing, and customizable styling.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal)
-
-                // Basic Example
-                DemoSection(title: "Basic Usage", description: "Simple tag field with common programming languages") {
-                    BasicTagFieldExample()
-                }
-
-                // Custom Colors Example
-                DemoSection(title: "Custom Styling", description: "Tags with predefined colors and custom maximum limit") {
-                    CustomColorTagFieldExample()
-                }
-
-                // Suggestions Example
-                DemoSection(title: "With Suggestions", description: "Auto-completion with suggested tags from a predefined list") {
-                    SuggestionsTagFieldExample()
-                }
+                .padding(.top)
 
                 // Features Overview
-                FeaturesOverview()
+                TokenTagFieldFeaturesOverview()
             }
             .padding(.bottom, 32)
         }
-        .navigationTitle("Token Tag Field")
     }
 }
 
@@ -72,7 +60,7 @@ private struct DemoSection<Content: View>: View {
 }
 
 /// Basic tag field example.
-private struct BasicTagFieldExample: View {
+struct BasicTagFieldExample: View {
     @State private var tags: [Tag] = [
         Tag(name: "Swift", color: .orange),
         Tag(name: "SwiftUI", color: .blue),
@@ -106,7 +94,7 @@ private struct BasicTagFieldExample: View {
 }
 
 /// Custom color tag field example.
-private struct CustomColorTagFieldExample: View {
+struct CustomColorTagFieldExample: View {
     @State private var tags: [Tag] = [
         Tag(name: "Important", color: .red),
         Tag(name: "Work", color: .blue),
@@ -141,7 +129,7 @@ private struct CustomColorTagFieldExample: View {
 }
 
 /// Suggestions tag field example.
-private struct SuggestionsTagFieldExample: View {
+struct SuggestionsTagFieldExample: View {
     @State private var tags: [Tag] = []
     @State private var inputText = ""
 
@@ -186,7 +174,7 @@ private struct SuggestionsTagFieldExample: View {
 }
 
 /// Features overview section.
-private struct FeaturesOverview: View {
+private struct TokenTagFieldFeaturesOverview: View {
     private let features = [
         ("tag.fill", "Tag Management", "Add, edit, and remove tags with intuitive controls"),
         ("textformat", "Inline Editing", "Double-tap any tag to edit its name inline"),

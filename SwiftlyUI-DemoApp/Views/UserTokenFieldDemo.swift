@@ -15,44 +15,22 @@ struct UserTokenFieldDemo: View {
             VStack(spacing: 32) {
                 // Header
                 VStack(spacing: 8) {
+                    Text("User Token Field")
+                        .font(.title)
+                        .fontWeight(.bold)
                     Text("A search-based user selection component with avatar display, auto-completion, and support for custom user types.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal)
-
-                // Basic Example
-                DemoSection(title: "Basic Usage", description: "Simple user selection from a list") {
-                    BasicUserFieldExample()
-                }
-
-                // Search & Filter Demo
-                DemoSection(title: "Search & Filter", description: "Real-time search by name or email") {
-                    SearchFilterExample()
-                }
-
-                // Avatar Varieties
-                DemoSection(title: "Avatar Varieties", description: "Different avatar types: images, URLs, and initials") {
-                    AvatarVarietiesExample()
-                }
-
-                // Team Selection Example
-                DemoSection(title: "Team Selection", description: "Limited user selection with realistic constraints") {
-                    TeamSelectionExample()
-                }
-
-                // Custom User Type Example
-                DemoSection(title: "Custom User Type", description: "Using your own user model with UserRepresentable") {
-                    CustomUserTypeExample()
-                }
+                .padding(.top)
 
                 // Features Overview
-                FeaturesOverview()
+                UserTokenFieldFeaturesOverview()
             }
             .padding(.bottom, 32)
         }
-        .navigationTitle("User Token Field")
     }
 }
 
@@ -82,7 +60,7 @@ private struct DemoSection<Content: View>: View {
 }
 
 /// Basic user field example.
-private struct BasicUserFieldExample: View {
+struct BasicUserFieldExample: View {
     @State private var selectedUsers: [SwiftlyUIUser] = []
     @State private var searchText = ""
 
@@ -126,7 +104,7 @@ private struct BasicUserFieldExample: View {
 }
 
 /// Search and filter example with more users.
-private struct SearchFilterExample: View {
+struct SearchFilterExample: View {
     @State private var selectedUsers: [SwiftlyUIUser] = []
     @State private var searchText = ""
 
@@ -167,7 +145,7 @@ private struct SearchFilterExample: View {
 }
 
 /// Avatar varieties example showing different avatar types.
-private struct AvatarVarietiesExample: View {
+struct AvatarVarietiesExample: View {
     @State private var selectedUsers: [SwiftlyUIUser] = []
     @State private var searchText = ""
 
@@ -230,7 +208,7 @@ private struct AvatarVarietiesExample: View {
 }
 
 /// Team selection example with user limit.
-private struct TeamSelectionExample: View {
+struct TeamSelectionExample: View {
     @State private var selectedUsers: [SwiftlyUIUser] = []
     @State private var searchText = ""
 
@@ -272,7 +250,7 @@ private struct TeamSelectionExample: View {
 }
 
 /// Custom user type example.
-private struct CustomUserTypeExample: View {
+struct CustomUserTypeExample: View {
     @State private var selectedUsers: [CustomUser] = []
     @State private var searchText = ""
 
@@ -376,7 +354,7 @@ private struct CustomUserTypeExample: View {
 }
 
 /// Features overview grid.
-private struct FeaturesOverview: View {
+private struct UserTokenFieldFeaturesOverview: View {
     let features = [
         Feature(icon: "magnifyingglass", title: "Search by Name/Email", description: "Intelligent filtering as you type"),
         Feature(icon: "person.crop.circle", title: "Avatar Display", description: "Images, URLs, or auto-generated initials"),
