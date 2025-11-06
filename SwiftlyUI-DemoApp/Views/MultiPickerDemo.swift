@@ -147,9 +147,9 @@ struct SearchableMultiPickerExamples: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
-            // Large Dataset Example
+            // Inline Search Example
             VStack(alignment: .leading, spacing: 12) {
-                Text("Large Dataset (\(fruits.count) items)")
+                Text("Inline Search (\(fruits.count) items)")
                     .font(.headline)
 
                 SearchableMultiPicker(
@@ -160,7 +160,7 @@ struct SearchableMultiPickerExamples: View {
                     showSelectAll: true,
                     showClearAll: true
                 )
-                .multiPickerStyle(.sheet)
+                .multiPickerStyle(.inline)
 
                 if !selection.isEmpty {
                     Text("Selected: \(selection.sorted().joined(separator: ", "))")
@@ -169,7 +169,36 @@ struct SearchableMultiPickerExamples: View {
                         .lineLimit(3)
                 }
 
-                Text("Search is case-insensitive and filters in real-time")
+                Text("Search field appears at top, items shown inline")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Sheet Presentation Example
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Sheet Presentation")
+                    .font(.headline)
+
+                SearchableMultiPicker(
+                    title: "Select Fruits (Sheet)",
+                    items: fruits,
+                    selection: $largeSelection,
+                    searchText: $largeSearchText,
+                    showSelectAll: true,
+                    showClearAll: true
+                )
+                .multiPickerStyle(.sheet)
+
+                if !largeSelection.isEmpty {
+                    Text("Selected: \(largeSelection.count) items")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                Text("Search field appears inside the modal sheet")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -183,9 +212,11 @@ struct SearchableMultiPickerExamples: View {
                     .font(.headline)
 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Search: '\(searchText.isEmpty ? "(none)" : searchText)'")
-                    Text("Results: \(searchText.isEmpty ? fruits.count : fruits.filter { $0.label.localizedCaseInsensitiveContains(searchText) }.count)")
-                    Text("Selected: \(selection.count)")
+                    Text("Inline Search: '\(searchText.isEmpty ? "(none)" : searchText)'")
+                    Text("Inline Results: \(searchText.isEmpty ? fruits.count : fruits.filter { $0.label.localizedCaseInsensitiveContains(searchText) }.count)")
+                    Text("Inline Selected: \(selection.count)")
+                    Divider()
+                    Text("Sheet Selected: \(largeSelection.count)")
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
