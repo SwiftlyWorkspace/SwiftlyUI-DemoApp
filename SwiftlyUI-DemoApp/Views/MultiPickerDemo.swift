@@ -34,7 +34,7 @@ struct MultiPickerDemo: View {
 
             Section {
                 NavigationLink("Features Overview") {
-                    FeaturesOverview()
+                    MultiPickerFeaturesOverview()
                 }
             } header: {
                 Text("About")
@@ -551,7 +551,7 @@ struct BulkActionsExamples: View {
 
 // MARK: - Features Overview
 
-struct FeaturesOverview: View {
+struct MultiPickerFeaturesOverview: View {
     var body: some View {
         List {
             FeatureRow(
