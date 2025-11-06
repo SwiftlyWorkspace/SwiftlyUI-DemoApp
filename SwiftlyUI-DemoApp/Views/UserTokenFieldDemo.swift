@@ -278,8 +278,8 @@ private struct CustomUserTypeExample: View {
 
     struct CustomUser: UserRepresentable {
         let id: UUID
-        let firstName: String
-        let lastName: String
+        let firstName: String?
+        let lastName: String?
         let email: String
         let department: String
         var avatarURL: URL?
