@@ -48,69 +48,81 @@ struct BasicMultiPickerExamples: View {
     }
 
     var body: some View {
-        List {
-            Section {
-                VStack(alignment: .leading, spacing: 8) {
-                    MultiPicker(
-                        title: "Simple List",
-                        items: simpleItems,
-                        selection: $simpleSelection
-                    )
-                    .multiPickerStyle(.inline)
-
-                    if !simpleSelection.isEmpty {
-                        Text("Selected: \(simpleSelection.sorted().map(String.init).joined(separator: ", "))")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-            } header: {
+        VStack(alignment: .leading, spacing: 32) {
+            // Simple List Example
+            VStack(alignment: .leading, spacing: 12) {
                 Text("Simple List (5 Items)")
-            }
+                    .font(.headline)
 
-            Section {
-                VStack(alignment: .leading, spacing: 8) {
-                    MultiPicker(
-                        title: "Medium List",
-                        items: mediumItems,
-                        selection: $mediumSelection
-                    )
-                    .multiPickerStyle(.inline)
+                MultiPicker(
+                    title: "Simple List",
+                    items: simpleItems,
+                    selection: $simpleSelection
+                )
+                .multiPickerStyle(.inline)
 
-                    if !mediumSelection.isEmpty {
-                        Text("\(mediumSelection.count) selected")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                if !simpleSelection.isEmpty {
+                    Text("Selected: \(simpleSelection.sorted().map(String.init).joined(separator: ", "))")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-            } header: {
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Medium List Example
+            VStack(alignment: .leading, spacing: 12) {
                 Text("Medium List (20 Items)")
-            } footer: {
-                Text("Demonstrates scrolling behavior with more items")
-            }
+                    .font(.headline)
 
-            Section {
-                VStack(alignment: .leading, spacing: 8) {
-                    MultiPicker(
-                        title: "UUID-based Items",
-                        items: customItems,
-                        selection: $customTypeSelection
-                    )
-                    .multiPickerStyle(.inline)
+                MultiPicker(
+                    title: "Medium List",
+                    items: mediumItems,
+                    selection: $mediumSelection
+                )
+                .multiPickerStyle(.inline)
 
-                    if !customTypeSelection.isEmpty {
-                        Text("\(customTypeSelection.count) items selected")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                if !mediumSelection.isEmpty {
+                    Text("\(mediumSelection.count) selected")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-            } header: {
-                Text("Custom Data Type (UUID)")
-            } footer: {
-                Text("Works with any Hashable type")
+
+                Text("Demonstrates scrolling behavior with more items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Custom Type Example
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Custom Data Type (UUID)")
+                    .font(.headline)
+
+                MultiPicker(
+                    title: "UUID-based Items",
+                    items: customItems,
+                    selection: $customTypeSelection
+                )
+                .multiPickerStyle(.inline)
+
+                if !customTypeSelection.isEmpty {
+                    Text("\(customTypeSelection.count) items selected")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                Text("Works with any Hashable type")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Basic Examples")
     }
 }
 
@@ -134,8 +146,12 @@ struct SearchableMultiPickerExamples: View {
     ].map { (value: $0, label: $0) }
 
     var body: some View {
-        List {
-            Section {
+        VStack(alignment: .leading, spacing: 32) {
+            // Large Dataset Example
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Large Dataset (\(fruits.count) items)")
+                    .font(.headline)
+
                 SearchableMultiPicker(
                     title: "Select Fruits",
                     items: fruits,
@@ -149,14 +165,22 @@ struct SearchableMultiPickerExamples: View {
                     Text("Selected: \(selection.sorted().joined(separator: ", "))")
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .lineLimit(3)
                 }
-            } header: {
-                Text("Large Dataset (\(fruits.count) items)")
-            } footer: {
-                Text("Search is case-insensitive and filters in real-time")
-            }
 
-            Section {
+                Text("Search is case-insensitive and filters in real-time")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Statistics
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Statistics")
+                    .font(.headline)
+
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Search: '\(searchText.isEmpty ? "(none)" : searchText)'")
                     Text("Results: \(searchText.isEmpty ? fruits.count : fruits.filter { $0.label.localizedCaseInsensitiveContains(searchText) }.count)")
@@ -164,11 +188,11 @@ struct SearchableMultiPickerExamples: View {
                 }
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            } header: {
-                Text("Statistics")
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Searchable Examples")
     }
 }
 
@@ -224,8 +248,12 @@ struct GroupedMultiPickerExamples: View {
     ]
 
     var body: some View {
-        List {
-            Section {
+        VStack(alignment: .leading, spacing: 32) {
+            // Food Categories Example
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Food Categories")
+                    .font(.headline)
+
                 GroupedMultiPicker(
                     title: "Select Foods",
                     sections: foodSections,
@@ -240,13 +268,20 @@ struct GroupedMultiPickerExamples: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
-            } header: {
-                Text("Food Categories")
-            } footer: {
-                Text("Tap section headers to expand/collapse")
-            }
 
-            Section {
+                Text("Tap section headers to expand/collapse")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Shopping Categories Example
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Shopping Categories")
+                    .font(.headline)
+
                 GroupedMultiPicker(
                     title: "Select Categories",
                     sections: categorySections,
@@ -259,13 +294,15 @@ struct GroupedMultiPickerExamples: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
-            } header: {
-                Text("Shopping Categories")
-            } footer: {
+
                 Text("Non-collapsible sections")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Grouped Examples")
     }
 }
 
@@ -286,25 +323,34 @@ struct StyleVariationsExamples: View {
     ]
 
     var body: some View {
-        List {
-            Section {
-                VStack(alignment: .leading, spacing: 8) {
-                    MultiPicker(
-                        title: "Inline Style",
-                        items: items,
-                        selection: $inlineSelection
-                    )
-                    .multiPickerStyle(.inline)
-
-                    selectionDisplay(for: inlineSelection)
-                }
-            } header: {
+        VStack(alignment: .leading, spacing: 32) {
+            // Inline Style
+            VStack(alignment: .leading, spacing: 12) {
                 Text("Inline Style")
-            } footer: {
-                Text("Items displayed directly in the view")
-            }
+                    .font(.headline)
 
-            Section {
+                MultiPicker(
+                    title: "Inline Style",
+                    items: items,
+                    selection: $inlineSelection
+                )
+                .multiPickerStyle(.inline)
+
+                selectionDisplay(for: inlineSelection)
+
+                Text("Items displayed directly in the view")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Navigation Link Style
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Navigation Link Style")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Navigation Link Style",
                     items: items,
@@ -313,13 +359,20 @@ struct StyleVariationsExamples: View {
                 .multiPickerStyle(.navigationLink)
 
                 selectionDisplay(for: navigationSelection)
-            } header: {
-                Text("Navigation Link Style")
-            } footer: {
-                Text("Navigates to a new screen")
-            }
 
-            Section {
+                Text("Navigates to a new screen")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Sheet Style
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Sheet Style")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Sheet Style",
                     items: items,
@@ -328,13 +381,20 @@ struct StyleVariationsExamples: View {
                 .multiPickerStyle(.sheet)
 
                 selectionDisplay(for: sheetSelection)
-            } header: {
-                Text("Sheet Style")
-            } footer: {
-                Text("Presents in a modal sheet")
-            }
 
-            Section {
+                Text("Presents in a modal sheet")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Menu Style
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Menu Style")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Menu Style",
                     items: items,
@@ -343,13 +403,15 @@ struct StyleVariationsExamples: View {
                 .multiPickerStyle(.menu)
 
                 selectionDisplay(for: menuSelection)
-            } header: {
-                Text("Menu Style")
-            } footer: {
+
                 Text("Dropdown menu (best for macOS)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Style Variations")
     }
 
     @ViewBuilder
@@ -372,8 +434,12 @@ struct SelectionLimitsExamples: View {
     let items = (1...10).map { (value: $0, label: "Option \($0)") }
 
     var body: some View {
-        List {
-            Section {
+        VStack(alignment: .leading, spacing: 32) {
+            // Minimum Selections
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Minimum Selections")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Min 2 Selections",
                     items: items,
@@ -387,13 +453,20 @@ struct SelectionLimitsExamples: View {
                     min: 2,
                     max: nil
                 )
-            } header: {
-                Text("Minimum Selections")
-            } footer: {
-                Text("Must select at least 2 items")
-            }
 
-            Section {
+                Text("Must select at least 2 items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Maximum Selections
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Maximum Selections")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Max 3 Selections",
                     items: items,
@@ -407,13 +480,20 @@ struct SelectionLimitsExamples: View {
                     min: 0,
                     max: 3
                 )
-            } header: {
-                Text("Maximum Selections")
-            } footer: {
-                Text("Can select up to 3 items")
-            }
 
-            Section {
+                Text("Can select up to 3 items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Selection Range
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Selection Range")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "2-4 Selections Required",
                     items: items,
@@ -428,13 +508,15 @@ struct SelectionLimitsExamples: View {
                     min: 2,
                     max: 4
                 )
-            } header: {
-                Text("Selection Range")
-            } footer: {
+
                 Text("Must select between 2 and 4 items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Selection Limits")
     }
 
     @ViewBuilder
@@ -467,8 +549,12 @@ struct BulkActionsExamples: View {
     let items = (1...15).map { (value: "item\($0)", label: "Item \($0)") }
 
     var body: some View {
-        List {
-            Section {
+        VStack(alignment: .leading, spacing: 32) {
+            // Select All Action
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Select All Action")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "With Select All",
                     items: items,
@@ -480,13 +566,20 @@ struct BulkActionsExamples: View {
                 Text("\(selectAllSelection.count) of \(items.count) selected")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-            } header: {
-                Text("Select All Action")
-            } footer: {
-                Text("Quickly select all available items")
-            }
 
-            Section {
+                Text("Quickly select all available items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Clear All Action
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Clear All Action")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "With Clear All",
                     items: items,
@@ -498,13 +591,20 @@ struct BulkActionsExamples: View {
                 Text("\(clearAllSelection.count) of \(items.count) selected")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-            } header: {
-                Text("Clear All Action")
-            } footer: {
-                Text("Quickly deselect all items")
-            }
 
-            Section {
+                Text("Quickly deselect all items")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+
+            // Combined Actions with Limit
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Combined Actions with Limit")
+                    .font(.headline)
+
                 MultiPicker(
                     title: "Both Actions",
                     items: items,
@@ -521,13 +621,15 @@ struct BulkActionsExamples: View {
                         .foregroundStyle(.secondary)
                 }
                 .font(.caption)
-            } header: {
-                Text("Combined Actions with Limit")
-            } footer: {
+
                 Text("Select All respects the maximum limit")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
         }
-        .navigationTitle("Bulk Actions")
     }
 }
 
