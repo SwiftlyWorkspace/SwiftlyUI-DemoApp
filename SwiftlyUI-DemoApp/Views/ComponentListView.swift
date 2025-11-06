@@ -23,6 +23,12 @@ struct ComponentListView: View {
             description: "A search-based user selection component with avatar display and auto-completion.",
             systemImage: "person.2.fill",
             destination: .userTokenField
+        ),
+        Component(
+            name: "MultiPicker",
+            description: "Multi-selection picker with search, sections, and multiple presentation styles.",
+            systemImage: "checklist",
+            destination: .multiPicker
         )
     ]
 
@@ -44,6 +50,8 @@ struct ComponentListView: View {
                     TokenTagFieldDemo()
                 case .userTokenField:
                     UserTokenFieldDemo()
+                case .multiPicker:
+                    MultiPickerDemo()
                 }
             } else {
                 if #available(macOS 14.0, iOS 17.0, *) {
@@ -119,6 +127,7 @@ struct Component: Identifiable {
 enum ComponentDestination: Hashable {
     case tokenTagField
     case userTokenField
+    case multiPicker
 }
 
 #Preview {
