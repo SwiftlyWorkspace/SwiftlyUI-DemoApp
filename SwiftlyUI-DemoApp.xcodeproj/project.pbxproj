@@ -380,8 +380,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftlyWorkspace/SwiftlyUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				kind = revision;
+				revision = 304763b72e2ce306e25f4cc1423b0a6787017031;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
