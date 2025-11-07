@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftlyWorkspace/SwiftlyUI.git",
       "state" : {
-        "branch" : "feature/timeline-component",
-        "revision" : "5f8ebd2ff1d181dd2035bc14f9aed73fd98400ac"
+        "branch" : "main",
+        "revision" : "864c35ad5f361503609ee098d9dcc30b88de696b"
       }
     }
   ],
