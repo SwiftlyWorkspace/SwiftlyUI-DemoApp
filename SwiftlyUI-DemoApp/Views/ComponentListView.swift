@@ -46,6 +46,17 @@ struct ComponentListView: View {
                     Label("MultiPicker", systemImage: "checklist")
                         .font(.headline)
                 }
+
+                Section {
+                    ForEach(timelineExamples) { example in
+                        NavigationLink(value: example.destination) {
+                            Label(example.title, systemImage: example.icon)
+                        }
+                    }
+                } header: {
+                    Label("Timeline", systemImage: "clock.fill")
+                        .font(.headline)
+                }
             }
             .navigationTitle("SwiftlyUI")
             #if os(macOS)
@@ -153,6 +164,30 @@ struct ComponentListView: View {
             DemoDetailWrapper(title: "Bulk Actions", description: "Select All and Clear All functionality") {
                 BulkActionsExamples()
             }
+
+        // Timeline
+        case .timelineOverview:
+            TimelineDemo()
+        case .timelineVertical:
+            DemoDetailWrapper(title: "Vertical Timeline", description: "Traditional vertical timeline with events") {
+                VerticalTimelineExample()
+            }
+        case .timelineHorizontal:
+            DemoDetailWrapper(title: "Horizontal Timeline", description: "Horizontal milestone timeline") {
+                HorizontalTimelineExample()
+            }
+        case .timelineCompact:
+            DemoDetailWrapper(title: "Compact Timeline", description: "Compact notification-style timeline") {
+                CompactTimelineExample()
+            }
+        case .timelineGitHub:
+            DemoDetailWrapper(title: "GitHub Branching", description: "Git-style branch and merge visualization") {
+                GitHubBranchingExample()
+            }
+        case .timelineCustom:
+            DemoDetailWrapper(title: "Custom Styling", description: "Customized indicators and connectors") {
+                CustomStylingExample()
+            }
         }
     }
 
@@ -181,6 +216,15 @@ struct ComponentListView: View {
         ExampleItem(title: "Style Variations", icon: "paintbrush", destination: .multiPickerStyles),
         ExampleItem(title: "Selection Limits", icon: "number", destination: .multiPickerLimits),
         ExampleItem(title: "Bulk Actions", icon: "checkmark.circle", destination: .multiPickerBulk)
+    ]
+
+    private let timelineExamples = [
+        ExampleItem(title: "Overview", icon: "info.circle", destination: .timelineOverview),
+        ExampleItem(title: "Vertical Timeline", icon: "arrow.down", destination: .timelineVertical),
+        ExampleItem(title: "Horizontal Timeline", icon: "arrow.right", destination: .timelineHorizontal),
+        ExampleItem(title: "Compact Timeline", icon: "list.bullet", destination: .timelineCompact),
+        ExampleItem(title: "GitHub Branching", icon: "arrow.triangle.branch", destination: .timelineGitHub),
+        ExampleItem(title: "Custom Styling", icon: "paintbrush", destination: .timelineCustom)
     ]
 }
 
@@ -216,6 +260,14 @@ enum DemoDestination: Hashable {
     case multiPickerStyles
     case multiPickerLimits
     case multiPickerBulk
+
+    // Timeline
+    case timelineOverview
+    case timelineVertical
+    case timelineHorizontal
+    case timelineCompact
+    case timelineGitHub
+    case timelineCustom
 }
 
 /// A wrapper view for demo detail pages with consistent styling.
