@@ -54,11 +54,11 @@ struct BasicMultiPickerExamples: View {
                 Text("Simple List (5 Items)")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Simple List",
-                    items: simpleItems,
-                    selection: $simpleSelection
-                )
+                MultiPicker("Simple List", selection: $simpleSelection) {
+                    ForEach(simpleItems, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 if !simpleSelection.isEmpty {
@@ -76,11 +76,11 @@ struct BasicMultiPickerExamples: View {
                 Text("Medium List (20 Items)")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Medium List",
-                    items: mediumItems,
-                    selection: $mediumSelection
-                )
+                MultiPicker("Medium List", selection: $mediumSelection) {
+                    ForEach(mediumItems, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 if !mediumSelection.isEmpty {
@@ -102,11 +102,11 @@ struct BasicMultiPickerExamples: View {
                 Text("Custom Data Type (UUID)")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "UUID-based Items",
-                    items: customItems,
-                    selection: $customTypeSelection
-                )
+                MultiPicker("UUID-based Items", selection: $customTypeSelection) {
+                    ForEach(customItems, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 if !customTypeSelection.isEmpty {
@@ -143,7 +143,7 @@ struct SearchableMultiPickerExamples: View {
         "Passionfruit", "Peach", "Pear", "Persimmon", "Pineapple", "Plum",
         "Pomegranate", "Quince", "Raspberry", "Starfruit", "Strawberry",
         "Tangerine", "Watermelon"
-    ].map { (value: $0, label: $0) }
+    ]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
@@ -153,13 +153,16 @@ struct SearchableMultiPickerExamples: View {
                     .font(.headline)
 
                 SearchableMultiPicker(
-                    title: "Select Fruits",
-                    items: fruits,
+                    "Select Fruits",
                     selection: $selection,
                     searchText: $searchText,
                     showSelectAll: true,
                     showClearAll: true
-                )
+                ) {
+                    ForEach(fruits, id: \.self) { fruit in
+                        Text(fruit).multiPickerTag(fruit)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 if !selection.isEmpty {
@@ -183,13 +186,16 @@ struct SearchableMultiPickerExamples: View {
                     .font(.headline)
 
                 SearchableMultiPicker(
-                    title: "Select Fruits (Sheet)",
-                    items: fruits,
+                    "Select Fruits (Sheet)",
                     selection: $largeSelection,
                     searchText: $largeSearchText,
                     showSelectAll: true,
                     showClearAll: true
-                )
+                ) {
+                    ForEach(fruits, id: \.self) { fruit in
+                        Text(fruit).multiPickerTag(fruit)
+                    }
+                }
                 .multiPickerStyle(.sheet)
 
                 if !largeSelection.isEmpty {
@@ -213,7 +219,7 @@ struct SearchableMultiPickerExamples: View {
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Inline Search: '\(searchText.isEmpty ? "(none)" : searchText)'")
-                    Text("Inline Results: \(searchText.isEmpty ? fruits.count : fruits.filter { $0.label.localizedCaseInsensitiveContains(searchText) }.count)")
+                    Text("Inline Results: \(searchText.isEmpty ? fruits.count : fruits.filter { $0.localizedCaseInsensitiveContains(searchText) }.count)")
                     Text("Inline Selected: \(selection.count)")
                     Divider()
                     Text("Sheet Selected: \(largeSelection.count)")
@@ -361,11 +367,11 @@ struct StyleVariationsExamples: View {
                 Text("Inline Style")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Inline Style",
-                    items: items,
-                    selection: $inlineSelection
-                )
+                MultiPicker("Inline Style", selection: $inlineSelection) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 selectionDisplay(for: inlineSelection)
@@ -383,11 +389,11 @@ struct StyleVariationsExamples: View {
                 Text("Navigation Link Style")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Navigation Link Style",
-                    items: items,
-                    selection: $navigationSelection
-                )
+                MultiPicker("Navigation Link Style", selection: $navigationSelection) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.navigationLink)
 
                 selectionDisplay(for: navigationSelection)
@@ -405,11 +411,11 @@ struct StyleVariationsExamples: View {
                 Text("Sheet Style")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Sheet Style",
-                    items: items,
-                    selection: $sheetSelection
-                )
+                MultiPicker("Sheet Style", selection: $sheetSelection) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.sheet)
 
                 selectionDisplay(for: sheetSelection)
@@ -427,11 +433,11 @@ struct StyleVariationsExamples: View {
                 Text("Menu Style")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Menu Style",
-                    items: items,
-                    selection: $menuSelection
-                )
+                MultiPicker("Menu Style", selection: $menuSelection) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.menu)
 
                 selectionDisplay(for: menuSelection)
@@ -472,12 +478,11 @@ struct SelectionLimitsExamples: View {
                 Text("Minimum Selections")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Min 2 Selections",
-                    items: items,
-                    selection: $minSelection,
-                    minSelections: 2
-                )
+                MultiPicker("Min 2 Selections", selection: $minSelection, minSelections: 2) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 validationDisplay(
@@ -499,12 +504,11 @@ struct SelectionLimitsExamples: View {
                 Text("Maximum Selections")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Max 3 Selections",
-                    items: items,
-                    selection: $maxSelection,
-                    maxSelections: 3
-                )
+                MultiPicker("Max 3 Selections", selection: $maxSelection, maxSelections: 3) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 validationDisplay(
@@ -526,13 +530,11 @@ struct SelectionLimitsExamples: View {
                 Text("Selection Range")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "2-4 Selections Required",
-                    items: items,
-                    selection: $rangeSelection,
-                    minSelections: 2,
-                    maxSelections: 4
-                )
+                MultiPicker("2-4 Selections Required", selection: $rangeSelection, minSelections: 2, maxSelections: 4) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 validationDisplay(
@@ -587,12 +589,11 @@ struct BulkActionsExamples: View {
                 Text("Select All Action")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "With Select All",
-                    items: items,
-                    selection: $selectAllSelection,
-                    showSelectAll: true
-                )
+                MultiPicker("With Select All", selection: $selectAllSelection, showSelectAll: true) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 Text("\(selectAllSelection.count) of \(items.count) selected")
@@ -612,12 +613,11 @@ struct BulkActionsExamples: View {
                 Text("Clear All Action")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "With Clear All",
-                    items: items,
-                    selection: $clearAllSelection,
-                    showClearAll: true
-                )
+                MultiPicker("With Clear All", selection: $clearAllSelection, showClearAll: true) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 Text("\(clearAllSelection.count) of \(items.count) selected")
@@ -637,14 +637,11 @@ struct BulkActionsExamples: View {
                 Text("Combined Actions with Limit")
                     .font(.headline)
 
-                MultiPicker(
-                    title: "Both Actions",
-                    items: items,
-                    selection: $bothSelection,
-                    maxSelections: 10,
-                    showSelectAll: true,
-                    showClearAll: true
-                )
+                MultiPicker("Both Actions", selection: $bothSelection, maxSelections: 10, showSelectAll: true, showClearAll: true) {
+                    ForEach(items, id: \.value) { item in
+                        Text(item.label).multiPickerTag(item.value)
+                    }
+                }
                 .multiPickerStyle(.inline)
 
                 VStack(alignment: .leading, spacing: 4) {

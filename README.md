@@ -27,7 +27,23 @@ This demo app provides interactive examples of SwiftlyUI components, allowing yo
 
 ### Using Swift Package Manager
 ```bash
+git clone https://github.com/SwiftlyWorkspace/SwiftlyUI-DemoApp.git
+cd SwiftlyUI-DemoApp
+swift build
+```
+
+#### Local Development Setup
+If you want to develop the demo app alongside changes to the SwiftlyUI library:
+
+```bash
+# Clone both repositories side by side
 git clone https://github.com/SwiftlyWorkspace/SwiftlyUI.git
+git clone https://github.com/SwiftlyWorkspace/SwiftlyUI-DemoApp.git
+
+# Edit Package.swift in SwiftlyUI-DemoApp
+# Comment out the GitHub URL and uncomment the local path:
+# .package(path: "../SwiftlyUI"),
+
 cd SwiftlyUI-DemoApp
 swift build
 ```
