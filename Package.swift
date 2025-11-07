@@ -19,7 +19,10 @@ let package = Package(
         // .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", from: "1.0.0"),
 
         // For development/main branch tracking:
-        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", branch: "main"),
+        // .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", branch: "main"),
+
+        // For feature branch development:
+        .package(url: "https://github.com/SwiftlyWorkspace/SwiftlyUI.git", branch: "feature/timeline-component"),
 
         // For local development (comment out the line above and uncomment this):
         // .package(path: "../SwiftlyUI"),
